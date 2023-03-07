@@ -1,0 +1,68 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-padding, 50px);
+}
+
+.checked {
+    color: red;
+}
+
+.mask {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.mask-star-2 {
+    -webkit-mask-image: url("data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 153.044-58.779 26.243 7.02-63.513L.894 68.481l63.117-13.01L96 0l31.989 55.472 63.117 13.01-43.347 47.292 7.02 63.513z' fill-rule='evenodd'/%3e%3c/svg%3e");
+    mask-image: url("data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 153.044-58.779 26.243 7.02-63.513L.894 68.481l63.117-13.01L96 0l31.989 55.472 63.117 13.01-43.347 47.292 7.02 63.513z' fill-rule='evenodd'/%3e%3c/svg%3e");
+}
+
+.rating {
+    position: relative;
+    //display: inline-flex;
+}
+.rating :where(input) {
+    cursor: pointer;
+    animation: rating-pop var(--animation-input, 0.25s) ease-out;
+    height: 1.5rem /* 24px */;
+    width: 1.5rem /* 24px */;
+    background-color: hsl(var(--bc) / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+}
+.rating input {
+    appearance: none;
+    -webkit-appearance: none;
+}
+.rating .rating-hidden {
+    width: 0.5rem /* 8px */;
+    background-color: transparent;
+}
+.rating input:checked ~ input,
+.rating input[aria-checked="true"] ~ input {
+    --tw-bg-opacity: 0.2;
+}
+.rating input:checked ~ input,
+.rating input[aria-checked="true"] ~ input {
+    --tw-bg-opacity: 0.2;
+}
+.rating input:focus-visible {
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-0.125em);
+}
+.rating input:active:focus {
+    animation: none;
+    transform: translateY(-0.125em);
+}
+
+.success {
+    border-radius: 0.25rem;
+    padding: 0.5rem /* 8px */;
+    --tw-bg-opacity: 1;
+    background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+}

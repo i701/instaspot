@@ -1,0 +1,25 @@
+{% extends 'index.html' %} {% block content %} {% load static %}
+
+<div class="font-merri md:py-10 grid md:grid-cols-2 my-4">
+    <div class="my-4">
+        <h1 class="font-bold text-4xl text-pink-800 mb-2">Who are we?</h1>
+        <hr />
+        <p class="my-4 text-gray-500 text-xl">
+            A small business located at the center of Sh.Maaungoodhoo serving
+            Mojitos, shakes and more.
+        </p>
+        <p class="text-gray-500">
+            You can find us near the mosque in the central street of the island
+            called Rahdhebai Magu.
+        </p>
+    </div>
+    <div class="flex items-center justify-center">
+        <img
+            class="ml-auto md:scale-75 shadow-md rounded-lg"
+            src="{% static 'img/location-mark.png' %}"
+            alt="{{drink.name}}"
+        />
+    </div>
+</div>
+<script src="{% static 'js/rating.js'  %}"></script>
+{% endblock %}

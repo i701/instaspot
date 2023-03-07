@@ -1,0 +1,100 @@
+<!-- prettier-ignore -->
+{% extends 'index.html' %} {% block content %} {% load static %} 
+{% load tailwind_filters %}
+
+<div class="font-merri md:py-10 grid md:grid-cols-2 my-4">
+    <div>
+        <h1 class="font-bold text-4xl text-pink-800 mb-2">{{drink.name}}</h1>
+        <p class="font-bold text-2xl text-gray-500">{{drink.price}} MVR</p>
+        <hr />
+        <p class="my-4 text-gray-500">{{drink.description}}</p>
+        <h3 class="mt-4 text-xl text-gray-700">Ingredients</h3>
+        <hr />
+        <ul class="flex gap-2 my-2 flex-wrap">
+            {% for ingredient in drink.ingredients.all %}
+            <li class="{{ bg_color }} rounded-xl text-gray-900 px-2 py-1">
+                {{ingredient}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="flex items-center justify-center">
+        <img
+            class="ml-auto md:scale-75 rounded-lg"
+            src="{{drink.image.url}}"
+            alt="{{drink.name}}"
+        />
+    </div>
+    <div>
+        <h3 class="mt-4 font-bold text-xl text-gray-700">
+            How would you rate this drink out of 5?
+        </h3>
+        <hr />
+        <form class="py-4" action="" method="post">
+            {% csrf_token %}
+            <div class="rating space-x-3">
+                <input
+                    value="1"
+                    type="radio"
+                    name="rating"
+                    class="scale-110 mask mask-star-2 bg-orange-400"
+                />
+                <input
+                    value="2"
+                    type="radio"
+                    name="rating"
+                    class="scale-110 mask mask-star-2 bg-orange-400"
+                />
+                <input
+                    value="3"
+                    type="radio"
+                    name="rating"
+                    class="scale-110 mask mask-star-2 bg-orange-400"
+                />
+                <input
+                    value="4"
+                    type="radio"
+                    name="rating"
+                    class="scale-110 mask mask-star-2 bg-orange-400"
+                />
+                <input
+                    value="5"
+                    type="radio"
+                    name="rating"
+                    checked
+                    class="scale-110 mask mask-star-2 bg-orange-400"
+                />
+            </div>
+            <button
+                class="bg-purple-200 mt-4 hover:bg-purple-300 p-2 rounded-xl"
+            >
+                Submit
+            </button>
+        </form>
+        <div class="">
+            <!-- prettier-ignore -->
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }} rounded-xl text-sm text-gray-700 flex justify-between items-center"{% endif %}>{{ message }}
+                    <button
+                    type="button"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                    onclick="this.parentElement.remove();"
+                    >
+                        <span class="bg-green-500 rounded-xl" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                              </svg>                              
+                        </span>
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/rating.js'  %}"></script>
+{% endblock %}

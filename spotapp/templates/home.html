@@ -1,0 +1,46 @@
+{% extends 'index.html' %} {% block content %} {% load static %}
+<div
+    class="font-merri flex-wrap flex justify-center items-center pb-10 md:py-20"
+>
+    <div class="flex-1 my-10">
+        <h1
+            class="font-bold text-5xl bg-gradient-to-r bg-clip-text text-transparent from-pink-500 via-pink-700 to-orange-500 mb-8 animate-text"
+        >
+            Welcome to
+            <span> Insta Spot </span>
+        </h1>
+        <h3 class="font-bold text-2xl mb-2 text-gray-700">
+            Feeling <span class="text-orange-600">thirsty</span>?
+        </h3>
+        <h3 class="font-bold text-2xl mb-2 text-gray-700">
+            Feeling that midday <span class="text-orange-600">cravings</span>?
+        </h3>
+        <h3 class="font-bold text-2xl mb-2 text-gray-700">
+            Want to grab a refreshing
+            <span class="text-orange-600">drink</span>?
+        </h3>
+        <p class="text-xl mt-3 text-gray-500">
+            Visit us and quench your thirst with a wide variety of drinks 🍹
+        </p>
+    </div>
+
+    <img
+        class="md:block animate-wiggle"
+        src="{% static 'img/casual-life-3d-pink-coffee-cup.png' %}"
+        alt=""
+    />
+</div>
+<div class="hidden overflow-hidden md:block">
+    <img
+        class="fixed -translate-y-20 scale-75"
+        src="{% static 'img/casual-life-3d-open-orange-coffee-cup.png' %}"
+        alt=""
+    />
+    <img
+        class="fixed ml-96 translate-y-20 scale-100"
+        src="{% static 'img/casual-life-3d-green-coffee-cup.png' %}"
+        alt=""
+    />
+</div>
+
+{% endblock %}

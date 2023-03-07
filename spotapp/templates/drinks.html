@@ -1,0 +1,163 @@
+{% extends 'index.html' %} {% block content %} {% load static %}
+<script defer src="{% static 'js/script.js' %}"></script>
+<div class="font-merri md:py-10">
+    <h1 class="font-bold text-4xl text-pink-800 mt-4">Explore our drinks</h1>
+
+    <div id="explore-header" class="flex justify-between py-4 rounded mb-8">
+        <div
+            class="flex text-xs md:text-base justify-start gap-2 flex-wrap items-start"
+        >
+            <a
+                class="bg-purple-200 rounded-xl text-gray-900 px-2 py-1"
+                href="#mojitos"
+                >#Mojitos</a
+            >
+            <a
+                class="bg-orange-200 rounded-xl text-gray-900 px-2 py-1"
+                href="#shakes"
+                >#Shakes & Ice Blends</a
+            >
+            <a
+                class="bg-blue-200 rounded-xl text-gray-900 px-2 py-1"
+                href="#jugos"
+                >#Jugos</a
+            >
+            <a
+                class="bg-red-200 rounded-xl text-gray-900 px-2 py-1"
+                href="#hotdrinks"
+                >#Hotdrinks</a
+            >
+        </div>
+    </div>
+
+    <!-- Mojitoes Section -->
+    <h2 class="font-bold text-2xl my-2 text-purple-900">Mojitos</h2>
+    <hr />
+    <div
+        id="mojitos"
+        class="font-merri grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8 my-4"
+    >
+        {% for mojito in mojitos %}
+        <div
+            class="bg-gradient-to-t from-purple-200 to-purple-100 flex flex-col justify-center items-center shadow-md h-auto rounded-lg p-2"
+        >
+            <div class="p-5 flex flex-col justify-center items-center">
+                <h5
+                    class="font-rampart text-sm text-gray-900 font-bold md:text-2xl tracking-tight mb-2"
+                >
+                    {{mojito.name}}
+                </h5>
+                <p class="font-rampart text-md rounded mb-2 text-purple-900">
+                    {{mojito.price}} MVR
+                </p>
+                <a
+                    href="{% url 'drink_detail' mojito.id %}"
+                    class="text-white text-sm lg:text-base hover:underline bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-2 text-center inline-flex items-center"
+                >
+                    Read more
+                    <svg
+                        class="-mr-1 ml-2 h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Jugo Section -->
+    <h2 class="font-bold text-2xl my-2 text-blue-900">Jugos</h2>
+    <hr />
+    <div
+        id="jugos"
+        class="font-merri grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-4 mb-8"
+    >
+        {% for jugo in jugos %}
+        <div
+            class="bg-gradient-to-t from-blue-200 to-blue-100 flex flex-col justify-center items-center shadow-md h-auto rounded-lg p-2"
+        >
+            <div class="p-5 flex flex-col justify-center items-center">
+                <h5
+                    class="font-rampart text-sm text-gray-900 font-bold md:text-2xl tracking-tight mb-2"
+                >
+                    {{jugo.name}}
+                </h5>
+                <p class="font-rampart text-md rounded mb-2 text-blue-900">
+                    {{jugo.price}} MVR
+                </p>
+                <a
+                    href="{% url 'drink_detail' jugo.id %}"
+                    class="text-white hover:underline bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
+                >
+                    Read more
+                    <svg
+                        class="-mr-1 ml-2 h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Hotdrinks Section -->
+    <h2 class="font-bold text-2xl my-2 text-red-700">Hot Drinks</h2>
+    <hr />
+    <div
+        id="hotdrinks"
+        class="font-merri grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-4 mb-8"
+    >
+        {% for drink in hotdrinks %}
+        <div
+            class="bg-gradient-to-t from-orange-200 to-orange-100 flex flex-col justify-center items-center shadow-md h-auto rounded-lg p-2"
+        >
+            <div class="p-5 flex flex-col justify-center items-center">
+                <h5
+                    class="font-rampart text-sm text-gray-900 font-bold md:text-2xl tracking-tight mb-2"
+                >
+                    {{drink.name}}
+                </h5>
+                <p class="font-rampart text-md rounded mb-2 text-orange-900">
+                    {{drink.price}} MVR
+                </p>
+                <a
+                    href="{% url 'drink_detail' drink.id %}"
+                    class="text-white hover:underline bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
+                >
+                    Read more
+                    <svg
+                        class="-mr-1 ml-2 h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
